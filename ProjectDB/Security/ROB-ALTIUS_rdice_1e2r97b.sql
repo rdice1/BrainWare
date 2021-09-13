@@ -1,0 +1,2 @@
+﻿CREATE USER [ROB-ALTIUS\rdice_1e2r97b] FOR LOGIN [ROB-ALTIUS\rdice_1e2r97b];
+
