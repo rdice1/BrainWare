@@ -1,29 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <Name>ProjectDB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{0c465a07-8e88-4281-8e2c-783125625064}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <ProjectGuid>{58d1e657-aa21-497f-ba9c-634d6da2d921}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>ProjectDB</RootNamespace>
-    <AssemblyName>ProjectDB</AssemblyName>
-    <ModelCollation>1033,CI</ModelCollation>
+    <RootNamespace>Database1</RootNamespace>
+    <AssemblyName>Database1</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
-    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -58,26 +57,17 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="dbo\" />
-    <Folder Include="dbo\Tables\" />
-    <Folder Include="Security\" />
-    <Folder Include="PublishProfiles" />
-    <Folder Include="Scripts" />
+    <Folder Include="Tables" />
+    <Folder Include="Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Company.sql" />
-    <Build Include="dbo\Tables\Order.sql" />
-    <Build Include="dbo\Tables\orderproduct.sql" />
-    <Build Include="dbo\Tables\Product.sql" />
-    <Build Include="Security\ROB-ALTIUS_rdice_1e2r97b.sql" />
-    <Build Include="Security\ROB-ALTIUS_rdice_1e2r97b_1.sql" />
-    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Tables\company.sql" />
+    <Build Include="Tables\product.sql" />
+    <Build Include="Tables\order.sql" />
+    <Build Include="Tables\orderproduct.sql" />
+    <Build Include="Stored Procedures\GetOrders.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PublishProfiles\ProjectDB.Test.publish.xml" />
-    <None Include="SqlSchemaCompare1.scmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="Scripts\PostDeployment.sql" />
+    <RefactorLog Include="ProjectDB.refactorlog" />
   </ItemGroup>
 </Project>

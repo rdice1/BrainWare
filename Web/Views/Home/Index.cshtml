@@ -1,0 +1,123 @@
+﻿@model List<Web.Models.Order>
+
+<div class="jumbotron">
+    <h1>BrainWare Orders</h1>
+    <p class="lead">This is the BrainWare orders page! Welcome</p>
+</div>
+
+<div class="container">
+    <h2>Orders</h2>
+    @foreach (var order in Model)
+    {
+        <h3>@order.Description</h3><table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var product in order.OrderProducts)
+                {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@order.OrderProducts.Count(g => g.Id == product.Id)</td>
+                    <td>$@product.Price</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+
+
+
+
+
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="container">
+    <h2>Your Orders</h2>
+    @foreach (var order in Model)
+    {
+        <h3>Our first order</h3>
+        <table class="table table-striped">*@
+@*@foreach (var product in item.OrderProducts)
+    {
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@product.Name</td>
+                <td>@item.OrderProducts.Count(g => g.Id == product.Id)</td>
+                <td>$@product.Price</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+        </tbody>
+    }*@
+@*</table>
+        }
+        }
+    </div>*@
+
+
+
+@*<div class="row">
+        <div class="col-md-12">
+            <h2>Your Orders</h2>
+            <div id="orders"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-3">
+            @foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="col-lg-6">
+                        @item.Description
+                        <ul>
+                            @foreach (var p in item.OrderProducts)
+                            {
+                                var q = item.OrderProducts.Count(g => g.Id == p.Id);
+                                string lineItem = $"{p.Name} {q} ${p.Price}";
+                                <li>@lineItem</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>*@

@@ -1,3 +1,0 @@
-﻿CREATE LOGIN [ROB-ALTIUS\rdice_1e2r97b]
-    FROM WINDOWS WITH DEFAULT_LANGUAGE = [us_english];
-
